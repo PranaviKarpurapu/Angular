@@ -1,0 +1,99 @@
+<!-- main app container -->
+<div class="card m-3">
+    <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+    <div class="card-body">
+        <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-5">
+                    <label>ID</label>
+                    <input type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }" />
+                    <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                        <div *ngIf="f.id.errors.required">ID is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Name</label>
+                    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                        <div *ngIf="f.name.errors.pattern">Enter only Capital Alphabets</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-group col-5">
+                <label>Joining Date</label>
+                <input type="date" formControlName="doj" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.doj.errors }" />
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.doj.errors.required">Joining Date is required</div>
+                    <div *ngIf="f.doj.errors.pattern">Enter Correct Date</div>
+                </div>
+            </div>
+            <div class="form-group col">
+                <label>Designation</label>
+                <select formControlName="designation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }">
+                    <option value=""></option>
+                    <option value="Team Lead">Team Lead</option>
+                    <option value="Fresher">Fresher</option>
+                    <option value="Trainee">Miss</option>
+                    <option value="Intern">Ms</option>
+                </select>
+                <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                    <div *ngIf="f.designation.errors.required">Designation is required</div>
+                </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col">
+                <label>Mobile</label>
+                <input  value="+91" size="1px" readonly >
+                <input type="text" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+            </div>
+            <div class="form-group col">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                
+            </div>
+        </div>
+         
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+               
+        
+            
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Submit</button>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="container">
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Joining Date</th>
+            <th>Designation</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+     <tr *ngFor="let li of list">
+    <td>{{li.id}}</td>
+    <td>{{li.name}}</td>
+    <td>{{li.doj}}</td>
+    <td>{{li.designation}}</td>
+    <td>{{li.mobile}}</td>
+    <td>{{li.email}}</td>
+    <td>{{li.password}}</td>
+        </tr>
+    </table>
+    </div>

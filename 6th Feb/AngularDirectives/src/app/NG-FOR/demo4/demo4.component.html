@@ -1,0 +1,56 @@
+<h3>Student Details</h3>
+<div id="student">
+    <table  cellspacing="0" cellpadding="8">
+        <tr>
+            <td>ID</td> 
+            <td><input type="text" [(ngModel)]="sid"></td>
+        </tr>
+
+        <tr>
+            <td>Name</td> 
+            <td><input type="text" [(ngModel)]="sname"></td>
+        </tr>
+
+        <tr>
+            <td>Standard</td> 
+            <td>
+                <select [(ngModel)]="std">
+                <!--<option>I</option>
+                    <option>II</option>
+                    <option>III</option>
+                    <option>IV</option>
+                -->
+                <option *ngFor="let item of stds">{{item}}</option>
+                    
+                 </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Age</td> 
+            <td><input type="text" [(ngModel)]="age"></td>
+        </tr>
+    
+        <tr>
+            <td>
+                <button (click)='Add()'>Add</button>
+            </td>
+        </tr>
+   
+</table>
+</div>
+<h3>Student Details</h3>
+<table border="1" cellspacing="0" cellpadding="8">
+    <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>STANDARD</th>
+    <th>AGE</th>
+    <tr>
+        <tr *ngFor="let item of list">
+            <td>{{item.sid}}</td>
+            <td>{{item.sname}}</td>
+            <td>{{item.std}}</td>
+            <td>{{item.age}}</td>
+        </tr>
+</table>

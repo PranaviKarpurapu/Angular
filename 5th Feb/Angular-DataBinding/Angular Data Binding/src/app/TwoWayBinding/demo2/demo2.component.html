@@ -1,0 +1,56 @@
+<p>demo2 works!</p>
+<div>
+    <table>
+        <tr>
+            <td>Employee Id</td>
+            <td> <input [(ngModel)]="emp.eid"></td>
+        </tr>
+
+        <tr>
+            <td>Employee Name</td>
+            <td><input [(ngModel)]="emp.ename"></td>
+        </tr>
+
+        <tr>
+            <td>Joining Date</td>
+            <td><input type="date" [(ngModel)]="emp.doj"></td>
+        </tr>
+
+        <tr>
+            <td>Designation </td>
+            <td>
+                <select [(ngModel)]='emp.des'>
+                    <option>Programmer</option>
+                    <option>TeamLead</option>
+                    <option>ProjectLead</option>
+                    <option>Senior Programmer</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td> Salary </td>
+            <td><input [(ngModel)]="emp.sal"></td>
+        </tr>
+
+        <!--Using Event Binding-->
+        <tr>
+            <td colspan="2">
+                <button (click)="Add()">Register</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <h3>
+    <pre>
+        Employee Id   : {{emp.eid}}
+        Employee Name : {{emp.ename}}
+        Joining Date  : {{emp.doj}}
+        Designation   : {{emp.des}}
+        Salary        : {{emp.sal}}
+
+    </pre>
+</h3>
+</div>

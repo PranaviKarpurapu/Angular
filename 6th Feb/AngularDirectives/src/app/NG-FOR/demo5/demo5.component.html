@@ -1,0 +1,60 @@
+<h3>Welcome</h3>
+<div id="Project">
+    <table  cellspacing="0" cellpadding="8">
+        <tr>
+            <td>ID</td> 
+            <td><input type="text" [(ngModel)]="pid"></td>
+        </tr>
+
+        <tr>
+            <td>Name</td> 
+            <td><input type="text" [(ngModel)]="pname"></td>
+        </tr>
+
+        <tr>
+            <td>Domain</td> 
+            <td>
+                <select [(ngModel)]="dom">
+                
+                <option *ngFor="let item of doms">{{item}}</option>
+                    
+                 </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Start Date</td> 
+            <td><input type="date" [(ngModel)]="startdate"></td>
+        </tr>
+
+        <tr>
+            <td>End Date</td> 
+            <td><input type="date" [(ngModel)]="enddate"></td>
+        </tr>
+    
+        <tr>
+            <td>
+                <button (click)='Submit()'>Submit</button>
+                
+            </td>
+        </tr>
+   
+</table>
+</div>
+<table border="1" cellspacing="0" cellpadding="8">
+    <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>DOMAIN</th>
+    <th>STARTDATE</th>
+    <th>ENDDATE</th>
+    <tr>
+        <tr *ngFor="let item of proj">
+            <td>{{item.pid}}</td>
+            <td>{{item.pname}}</td>
+            <td>{{item.dom}}</td>
+            <td>{{item.startdate}}</td>
+            <td>{{item.enddate}}</td>
+            
+        </tr>
+</table>
